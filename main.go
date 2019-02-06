@@ -1,10 +1,11 @@
 package main
 
 import (
+	"./config"
+	"./router"
 	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/config"
-	"github.com/gitobhub/zhihu/router"
 )
 
 func main() {
@@ -20,7 +21,7 @@ func Init(engine *gin.Engine) {
 }
 
 func setSession(engine *gin.Engine) {
-	store := sessions.NewCookieStore([]byte(config.Server.SessionSecret))
+	store := cookie.NewStore([]byte(config.Server.SessionSecret))
 	store.Options(sessions.Options{HttpOnly: true, MaxAge: 7 * 86400, Path: "/"}) //Also set Secure: true if using SSL, you should though
 	engine.Use(sessions.Sessions("gin-session", store))
 }
