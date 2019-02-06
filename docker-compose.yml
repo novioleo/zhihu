@@ -1,0 +1,19 @@
+version: "3"
+services:
+
+  zhihu:
+    build: docker/zhihu
+    networks:
+      - backend
+  mysql:
+    image: novioleo/zhihu_mysql:0.1
+    build: docker/mysql
+    networks:
+      - backend
+  redis:
+    image: redis:4-alpine
+    networks:
+      - backend
+
+networks:
+  backend:
