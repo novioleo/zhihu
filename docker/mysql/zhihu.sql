@@ -1,18 +1,14 @@
 #---------------------------------------------------------
 
-DROP DATABASE IF EXISTS zhihu;
-
-CREATE DATABASE zhihu character set utf8;
+CREATE DATABASE IF NOT EXISTS zhihu character set utf8;
 use zhihu
 
 #---------------------------------------------------------
 
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    email varchar(50) NOT NULL DEFAULT '' UNIQUE,
+    email varchar(50) NOT NULL DEFAULT '' UNIQUE PRIMARY KEY,
     fullname varchar(100) NOT NULL,
     password varchar(100) NOT NULL,
     gender tinyint(2)  NOT NULL DEFAULT '-1',
@@ -30,9 +26,7 @@ CREATE TABLE users (
 
 #---------------------------------------------------------
 
-DROP TABLE IF EXISTS questions;
-
-CREATE TABLE questions (
+CREATE TABLE IF NOT EXISTS questions (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     user_id int(11) unsigned NOT NULL,
     title varchar(100) NOT NULL DEFAULT '',
@@ -47,9 +41,7 @@ CREATE TABLE questions (
 
 #---------------------------------------------------------
 
-DROP TABLE IF EXISTS answers;
-
-CREATE TABLE answers (
+CREATE TABLE IF NOT EXISTS answers (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     question_id int(11) unsigned NOT NULL,
     user_id int(11) unsigned NOT NULL,
@@ -65,9 +57,7 @@ CREATE TABLE answers (
     
 #---------------------------------------------------------
 
-DROP TABLE IF EXISTS topics;
-
-CREATE TABLE topics (
+CREATE TABLE IF NOT EXISTS topics (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     name varchar(50) NOT NULL DEFAULT '' UNIQUE,
     PRIMARY KEY (id)
@@ -75,9 +65,7 @@ CREATE TABLE topics (
 
 #--------------------------------------------------------
 
-DROP TABLE IF EXISTS question_topics;
-
-CREATE TABLE question_topics (
+CREATE TABLE IF NOT EXISTS question_topics (
     question_id int(11) unsigned NOT NULL,
     topic_id int(11) unsigned NOT NULL,
     PRIMARY KEY (question_id, topic_id)
@@ -85,9 +73,7 @@ CREATE TABLE question_topics (
 
 #--------------------------------------------------------
 
-DROP TABLE IF EXISTS answer_comments;
-
-CREATE TABLE answer_comments (
+CREATE TABLE IF NOT EXISTS answer_comments (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     user_id int(11) unsigned NOT NULL,
     answer_id int(11) unsigned NOT NULL,
@@ -98,9 +84,7 @@ CREATE TABLE answer_comments (
 
 #--------------------------------------------------------
 
-DROP TABLE IF EXISTS question_comments;
-
-CREATE TABLE question_comments (
+CREATE TABLE IF NOT EXISTS question_comments (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     user_id int(11) unsigned NOT NULL,
     question_id int(11) unsigned NOT NULL,
@@ -111,9 +95,7 @@ CREATE TABLE question_comments (
 
 #--------------------------------------------------------
 
-DROP TABLE IF EXISTS question_followers;
-
-CREATE TABLE question_followers (
+CREATE TABLE IF NOT EXISTS question_followers (
     question_id int(11) unsigned NOT NULL,
     user_id int(11) unsigned NOT NULL,
     created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -122,9 +104,7 @@ CREATE TABLE question_followers (
 
 #--------------------------------------------------------
 
-DROP TABLE IF EXISTS member_followers;
-
-CREATE TABLE member_followers (
+CREATE TABLE IF NOT EXISTS member_followers (
     member_id int(11) unsigned NOT NULL,
     follower_id int(11) unsigned NOT NULL,
     created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -133,9 +113,7 @@ CREATE TABLE member_followers (
 
 #--------------------------------------------------------
 
-DROP TABLE IF EXISTS answer_voters;
-
-CREATE TABLE answer_voters (
+CREATE TABLE IF NOT EXISTS answer_voters (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     user_id int(11) unsigned NOT NULL,
     answer_id int(11) unsigned NOT NULL,
@@ -144,7 +122,7 @@ CREATE TABLE answer_voters (
 
 #--------------------------------------------------------
 
-INSERT users SET
+INSERT users IF NOT EXISTS SET
 created_at=now(),
 email="root@root.com",
 fullname="root",
@@ -154,7 +132,7 @@ url_token="root",
 avatar_url="/static/favicon.ico",
 question_count=1;
 
-INSERT users SET
+INSERT users IF NOT EXISTS SET
 created_at=now(),
 email="qiu@qiu.com",
 fullname="qiu",
@@ -165,7 +143,7 @@ url_token="qiu",
 avatar_url="/static/images/20180428152318.jpg",
 follower_count=1;
 
-INSERT users SET
+INSERT users IF NOT EXISTS SET
 created_at=now(),
 email="pan@pan.com",
 fullname="pan",
