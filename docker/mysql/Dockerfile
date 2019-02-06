@@ -1,5 +1,6 @@
 FROM mysql:5.7
-MAINTAINER dockerobhub <lgob_123@163.com>
+# MAINTAINER dockerobhub <lgob_123@163.com>
+MAINTAINER novioleo <nsnovio@gmail.com>
 ADD zhihu.sql /mysql/
 ADD privileges.sql /mysql/
 ADD setup.sh /mysql/
