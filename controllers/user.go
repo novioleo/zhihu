@@ -4,11 +4,11 @@ import (
 	"log"
 	"net/http"
 
+	"../config"
+	"../models"
+	"../utils"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/config"
-	"github.com/gitobhub/zhihu/models"
-	"github.com/gitobhub/zhihu/utils"
 )
 
 func SigninGet(c *gin.Context) {

@@ -3,9 +3,9 @@ package middleware
 import (
 	"net/http"
 
+	"../config"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/config"
 )
 
 func SigninRequired() gin.HandlerFunc {

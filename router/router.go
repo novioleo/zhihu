@@ -1,9 +1,9 @@
 package router
 
 import (
+	"../controllers"
+	"../middleware"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/controllers"
-	"github.com/gitobhub/zhihu/middleware"
 )
 
 func Route(router *gin.Engine) {

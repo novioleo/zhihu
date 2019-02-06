@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"../models"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/models"
 )
 
 func IndexGet(c *gin.Context) {

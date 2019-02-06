@@ -1,10 +1,10 @@
 package controllers
 
 import (
+	"../config"
+	"../models"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/config"
-	"github.com/gitobhub/zhihu/models"
 )
 
 func Visitor(c *gin.Context) (*models.User, uint) {

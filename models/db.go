@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"log"
 
+	"../config"
 	"github.com/garyburd/redigo/redis"
-	"github.com/gitobhub/zhihu/config"
 	_ "github.com/go-sql-driver/mysql"
 )
 

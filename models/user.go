@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/gitobhub/zhihu/utils"
+	"../utils"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/henrylee2cn/pholcus/common/pinyin"
 )

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	//"time"
 
-	"github.com/gitobhub/zhihu/utils"
+	"../utils"
 )
 
 func InsertQuestion(question *Question, uid uint) error {

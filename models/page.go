@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
+	"../utils"
 	"github.com/garyburd/redigo/redis"
 	"github.com/gin-contrib/sessions"
-	"github.com/gitobhub/zhihu/utils"
 	_ "github.com/go-sql-driver/mysql"
 )
 

@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
+	"../models"
 	"github.com/gin-gonic/gin"
-	"github.com/gitobhub/zhihu/models"
 )
 
 func SearchTopics(c *gin.Context) {

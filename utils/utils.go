@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/gitobhub/zhihu/config"
+	"../config"
 )
 
 type Err struct {
