@@ -1,3 +1,8 @@
+use mysql
+create user docker identified by '123456';
+grant all on zhihu.* to docker@'%' identified by '123456' with grant option;
+flush privileges;
+
 #---------------------------------------------------------
 
 CREATE DATABASE IF NOT EXISTS zhihu character set utf8;
@@ -8,7 +13,7 @@ use zhihu
 CREATE TABLE IF NOT EXISTS users (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    email varchar(50) NOT NULL DEFAULT '' UNIQUE PRIMARY KEY,
+    email varchar(50) NOT NULL DEFAULT '' UNIQUE,
     fullname varchar(100) NOT NULL,
     password varchar(100) NOT NULL,
     gender tinyint(2)  NOT NULL DEFAULT '-1',
@@ -122,7 +127,7 @@ CREATE TABLE IF NOT EXISTS answer_voters (
 
 #--------------------------------------------------------
 
-INSERT users IF NOT EXISTS SET
+INSERT ignore users SET
 created_at=now(),
 email="root@root.com",
 fullname="root",
@@ -132,7 +137,7 @@ url_token="root",
 avatar_url="/static/favicon.ico",
 question_count=1;
 
-INSERT users IF NOT EXISTS SET
+INSERT ignore users SET
 created_at=now(),
 email="qiu@qiu.com",
 fullname="qiu",
@@ -143,7 +148,7 @@ url_token="qiu",
 avatar_url="/static/images/20180428152318.jpg",
 follower_count=1;
 
-INSERT users IF NOT EXISTS SET
+INSERT ignore users SET
 created_at=now(),
 email="pan@pan.com",
 fullname="pan",
