@@ -1,6 +1,6 @@
 #!/bin/bash
-cd /src/zhihu
+cd /go/src/github.com/novioleo/zhihu
 echo 'Installing'
-go install
+go build main.go
 echo 'Run zhihu'
 zhihu
