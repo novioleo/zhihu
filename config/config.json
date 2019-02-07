@@ -2,13 +2,13 @@
     "database": {
         "database": "zhihu",
         "driver_name": "mysql",
-        "host": "localhost",
+        "host": "mysql",
         "port": "3306",
         "password": "",
         "user": ""
     },
     "redis": {
-        "host": "",
+        "host": "redis",
         "max_idle": 3,
         "password": "",
         "port": "6379"
