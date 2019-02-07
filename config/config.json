@@ -4,8 +4,8 @@
         "driver_name": "mysql",
         "host": "mysql",
         "port": "3306",
-        "password": "",
-        "user": ""
+        "password": "123456",
+        "user": "docker"
     },
     "redis": {
         "host": "redis",
