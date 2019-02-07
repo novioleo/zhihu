@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $GOPATH/src/github.com/gitobhub/zhihu
+cd /src/zhihu
 echo 'Installing'
 go install
 echo 'Run zhihu'
