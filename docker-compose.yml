@@ -32,7 +32,8 @@ services:
     networks:
       - backend
     volumes:
-      - /var/lib/mysql
+      # 测试的时候可以用bind的模式，在实际使用的时候建议用volume的模式
+      - mysql_data:/var/lib/mysql
       - ./docker/mysql_init:/docker-entrypoint-initdb.d/
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
@@ -43,3 +44,5 @@ services:
 
 networks:
   backend:
+volumes:
+  mysql_data:
