@@ -1,0 +1,22 @@
+{
+    "database": {
+        "database": "zhihu",
+        "driver_name": "mysql",
+        "host": "localhost",
+        "port": "3306",
+        "password": "123456",
+        "user": "docker"
+    },
+    "redis": {
+        "host": "localhost",
+        "max_idle": 3,
+        "password": "",
+        "port": "6379"
+    },
+    "server": {
+        "addr": ":8080",
+        "session_key": "user_id",
+        "session_secret": "zhihu",
+        "salt": "^&*(kk)"
+    }
+}
