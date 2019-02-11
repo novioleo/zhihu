@@ -6,9 +6,11 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
+	"os"
 )
 
 func main() {
+	gin.SetMode(os.Getenv("Mode"))
 	app := gin.Default()
 	Init(app)
 	app.Run(config.Server.Addr)
