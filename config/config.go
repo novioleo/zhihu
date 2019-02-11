@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
 type config struct {
@@ -46,7 +47,11 @@ var (
 )
 
 func initJson() {
-	data, err := ioutil.ReadFile("config/config.json")
+	var configName string = "config"
+	if os.Getenv("MODE") != "release" {
+		configName += "_debug"
+	}
+	data, err := ioutil.ReadFile(fmt.Sprintf("config/%s.json", configName))
 	if err != nil {
 		log.Println(err)
 		return
