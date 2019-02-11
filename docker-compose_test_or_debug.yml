@@ -1,0 +1,35 @@
+version: "3"
+services:
+
+  adminer:
+    image: dehy/adminer:4.7.1
+    restart: on-failure
+    ports:
+      - 8989:80
+    networks:
+      - backend
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    networks:
+      - backend
+    volumes:
+      # 测试的时候可以用bind的模式，在实际使用的时候建议用volume的模式
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql_init:/docker-entrypoint-initdb.d/
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - 3306:3306
+  redis:
+    image: redis:4-alpine
+    networks:
+      - backend
+    ports:
+      - 6379:6379
+
+networks:
+  backend:
+volumes:
+  mysql_data:
