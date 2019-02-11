@@ -18,9 +18,13 @@ services:
       - mysql
       - redis
     restart: on-failure
+    environment:
+#      - MODE=debug
+      - MODE=release
+#      - MODE=test
   adminer:
     image: dehy/adminer:4.7.1
-    restart: always
+    restart: on-failure
     ports:
       - 8989:80
     networks:
