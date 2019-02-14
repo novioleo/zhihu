@@ -45,6 +45,7 @@ go run main.go
 
 ## TODO List
 - [x] 修改原项目代码，保证其他人能直接clone下来运行
+- [ ] 尝试用gorm对项目进行重构
 - [ ] 在提问页面上增加算法问题选项
 - [ ] 打通Judge Server，实现后端功能
 - [ ] 增加回答页面的oj功能
